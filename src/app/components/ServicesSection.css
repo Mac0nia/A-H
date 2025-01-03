@@ -1,0 +1,21 @@
+.service-card {
+  position: relative; /* Required for positioning the pseudo-element */
+  background: rgba(255, 255, 255, 0.3); /* Adjusted for semi-transparency */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Inner spacing */
+  overflow: hidden; /* Ensure pseudo-element doesn't overflow */
+  color: white; /* Set text color to white */
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1); /* Adjust as needed */
+  backdrop-filter: blur(5px); /* Blur effect */
+  z-index: -1; 
+  color: white;
+}

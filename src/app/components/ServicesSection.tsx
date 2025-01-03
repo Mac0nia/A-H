@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import './ServicesSection.css';
 
 interface ServiceCardProps {
   title: string;
@@ -11,14 +12,14 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, icon, delay }: ServiceCardProps) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ y: 20 }}
+    whileInView={{ y: 0 }}
     transition={{ duration: 0.5, delay }}
-    className="bg-[#1E1E1E]/80 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+    className="service-card bg-[#1a1a1a]/20 p-6 rounded-lg shadow-lg hover:shadow-xl hover:bg-[#1a1a1a]/30 transition-all duration-300"
   >
     <div className="text-[#DAA520] text-3xl mb-4">{icon}</div>
-    <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-    <p className="text-gray-300">{description}</p>
+    <h3 className="text-xl font-bold mb-2">{title}</h3>
+    <p>{description}</p>
   </motion.div>
 );
 
@@ -51,7 +52,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section id="services" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

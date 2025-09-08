@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/Mac0nia/A-H
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "feature/my-new-feature"]
+	remote = origin
+	merge = refs/heads/feature/my-new-feature
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master

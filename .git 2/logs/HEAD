@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 4b99f6d0d41519a54bebbaaf4800d0cf3eef40de Gianluca Galli <gianluca.galli9519@gmail.com> 1734525465 +0100	commit (initial): Add animated background and update company branding to A&H Bros
+4b99f6d0d41519a54bebbaaf4800d0cf3eef40de 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735928731 +0000	commit: Updated ServicesSection styles and modified Navbar, Blog, AboutUs, and Contact components
+4127cc117cda3eceb87ce604f6127203b1b51ca7 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735929234 +0000	checkout: moving from master to feature/my-new-feature
+4127cc117cda3eceb87ce604f6127203b1b51ca7 4c6593f5ca4fdb7b6054a7178a43a559c48f77c7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735930838 +0000	commit: Added zIndex to AnimatedBackground
+4c6593f5ca4fdb7b6054a7178a43a559c48f77c7 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735930900 +0000	checkout: moving from feature/my-new-feature to master
+4127cc117cda3eceb87ce604f6127203b1b51ca7 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735930914 +0000	checkout: moving from master to new-feature-branch
+4127cc117cda3eceb87ce604f6127203b1b51ca7 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735931353 +0000	checkout: moving from new-feature-branch to master
+4127cc117cda3eceb87ce604f6127203b1b51ca7 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735931366 +0000	checkout: moving from master to new-feature-branch
+4127cc117cda3eceb87ce604f6127203b1b51ca7 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735931519 +0000	checkout: moving from new-feature-branch to master
+4127cc117cda3eceb87ce604f6127203b1b51ca7 f80d09b733118d51f0106986d627e53ed83c0d6e Gianluca Galli <gianluca.galli9519@gmail.com> 1735932064 +0000	checkout: moving from master to main
+f80d09b733118d51f0106986d627e53ed83c0d6e 4127cc117cda3eceb87ce604f6127203b1b51ca7 Gianluca Galli <gianluca.galli9519@gmail.com> 1735932366 +0000	checkout: moving from main to master

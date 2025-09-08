@@ -25,38 +25,54 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center relative">
-      {/* Remove the decorative background since we now have AnimatedBackground */}
+    <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative h-[100dvh] h-screen-ios">
       <motion.div 
-        className="text-center relative"
+        className="w-full max-w-6xl mx-auto text-center relative px-4"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 
-          className="text-6xl font-bold mb-6 text-white"
+        <motion.div 
+          className="mb-4 sm:mb-6 md:mb-8"
           variants={itemVariants}
         >
-          Welcome to <span className="text-[#DAA520]">A&H Bros</span>
+          <img 
+            src="/logo.svg" 
+            alt="A&H Electric Logo" 
+            className="h-40 w-40 sm:h-52 sm:w-52 md:h-64 md:w-64 lg:h-72 lg:w-72 xl:h-80 xl:w-80 mx-auto"
+            loading="eager"
+          />
+        </motion.div>
+        
+        <motion.h1 
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-white leading-tight"
+          variants={itemVariants}
+        >
+          We are <span className="text-[#DAA520]">A&H Electrical</span>
         </motion.h1>
         
         <motion.p 
-          className="text-xl mb-12 max-w-2xl mx-auto text-gray-300"
+          className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto text-gray-300 px-2 leading-relaxed"
           variants={itemVariants}
         >
           Professional Electrical Services for Your Home and Business
         </motion.p>
 
-        <motion.button 
-          className="bg-[#DAA520] text-[#121212] py-3 px-8 rounded-full text-lg font-semibold shadow-lg hover:bg-[#B8860B] transition-colors"
-          whileHover={{ 
-            scale: 1.05,
-            boxShadow: "0 0 25px rgba(218, 165, 32, 0.3)"
-          }}
-          whileTap={{ scale: 0.95 }}
+        <motion.div
+          variants={itemVariants}
+          className="px-4 sm:px-0"
         >
-          Get a Free Quote
-        </motion.button>
+          <motion.button 
+            className="bg-[#DAA520] text-[#121212] py-3 px-6 sm:py-3 sm:px-8 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:bg-[#B8860B] transition-colors w-full sm:w-auto"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(218, 165, 32, 0.3)"
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Get a Free Quote
+          </motion.button>
+        </motion.div>
       </motion.div>
     </div>
   );

@@ -1,12 +1,19 @@
 .service-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.06); 
-  border-radius: 10px; 
-  padding: 20px; 
-  overflow: hidden; 
-  color: white; 
+  border-radius: 10px;
+  padding: 1.25rem;
+  overflow: hidden;
+  color: white;
   z-index: 1;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .service-card::before {
@@ -16,9 +23,36 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.03); 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: transparent; /* ensure card bg color is exact */
+  backdrop-filter: none;
   z-index: -1;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e5e7eb;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .service-card {
+    padding: 1rem;
+  }
+  
+  .service-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .service-card p {
+    font-size: 0.9rem;
+  }
 }

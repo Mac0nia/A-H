@@ -69,6 +69,12 @@ const HeroSection = () => {
               boxShadow: "0 0 25px rgba(218, 165, 32, 0.3)"
             }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             Get a Free Quote
           </motion.button>

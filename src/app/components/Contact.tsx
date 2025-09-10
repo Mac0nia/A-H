@@ -35,15 +35,23 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target as HTMLInputElement;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setForm(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setForm(prev => ({
+      ...prev,
+      [name]: checked,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
@@ -60,8 +68,30 @@ const Contact = () => {
       return;
     }
 
-    // Simulate success
-    setSubmitted(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      setError('Failed to send message. Please try again later.');
+    }
   };
 
   return (
@@ -76,8 +106,9 @@ const Contact = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Contact Us</h2>
           <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
-            Have questions or need a quote? Send us a message and we’ll get back to you shortly.
-          </p>
+            Have questions or need a quote?</p>
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+            Send us a message and we’ll get back to you shortly.</p>
         </motion.div>
 
         <div className="space-y-8">
@@ -103,7 +134,7 @@ const Contact = () => {
                         name="name"
                         type="text"
                         value={form.name}
-                        onChange={handleChange}
+                        onChange={handleInputChange}
                         className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white"
                         placeholder="Jane Doe"
                         required
@@ -116,7 +147,7 @@ const Contact = () => {
                         name="email"
                         type="email"
                         value={form.email}
-                        onChange={handleChange}
+                        onChange={handleInputChange}
                         className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white"
                         placeholder="you@example.com"
                         required
@@ -131,7 +162,7 @@ const Contact = () => {
                         name="phone"
                         type="tel"
                         value={form.phone}
-                        onChange={handleChange}
+                        onChange={handleInputChange}
                         className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white"
                         placeholder="+44 7123 456789"
                       />
@@ -142,7 +173,7 @@ const Contact = () => {
                         id="service"
                         name="service"
                         value={form.service}
-                        onChange={handleChange}
+                        onChange={handleInputChange}
                         className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white"
                       >
                         <option value="">Select a service (optional)</option>
@@ -164,21 +195,25 @@ const Contact = () => {
                       id="message"
                       name="message"
                       value={form.message}
-                      onChange={handleChange}
+                      onChange={handleInputChange}
                       className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white min-h-[140px]"
                       placeholder="Tell us about your project..."
                       required
                     />
                   </div>
                   <div className="flex items-start gap-3">
-                    <input
-                      id="consent"
-                      name="consent"
-                      type="checkbox"
-                      checked={form.consent}
-                      onChange={handleChange}
-                      className="mt-1 h-4 w-4 rounded border-white/20 bg-[#111] text-[#DAA520] focus:ring-[#DAA520]"
-                    />
+                    <div className="relative flex items-start">
+                      <div className="flex h-5 items-center">
+                        <input
+                          id="consent"
+                          name="consent"
+                          type="checkbox"
+                          checked={form.consent}
+                          onChange={handleCheckboxChange}
+                          className="h-5 w-5"
+                        />
+                      </div>
+                    </div>
                     <label htmlFor="consent" className="text-sm text-gray-300">
                       I agree that my data will be used to contact me about my enquiry. We respect your privacy.
                     </label>

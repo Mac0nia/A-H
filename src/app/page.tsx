@@ -3,6 +3,7 @@ import ServicesSection from './components/ServicesSection';
 import AnimatedBackground from './components/AnimatedBackground';
 import Contact from './components/Contact';
 import AboutSection from './components/AboutSection';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <AboutSection />
         <ServicesSection />
         <Contact />
+        <Footer />
       </div>
     </main>
   );

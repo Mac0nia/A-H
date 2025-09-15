@@ -84,13 +84,14 @@ const AboutSection = () => {
         >
           <div className="bg-[rgb(49_49_49_/_50%)] hover:bg-[rgb(49_49_49_/_60%)] transition-colors duration-300 p-6 rounded-lg max-w-4xl mx-auto shadow-lg hover:shadow-xl">
             <h3 className="text-2xl font-bold mb-4 text-gray-300 mb-4">Why Choose Us?</h3>
-            <p className="text-gray-300 mb-4">
-              Our team of certified electricians brings expertise, attention to detail, and a commitment to excellence to every project. 
-              We take pride in our work and stand behind it with comprehensive warranties and exceptional customer service.
-            </p>
             <p className="text-gray-300">
-              Whether you need a simple repair or a complete electrical system installation, we have the skills and experience to get the job done right.
-            </p>
+              We arrive on time and finish when promised.</p>
+            <p className="text-gray-300">
+              Our quotes are clear and upfront.</p>
+            <p className="text-gray-300">
+              We work clean, leaving your space as we found it.</p>
+            <p className="text-gray-300">
+              Most of our customers come through referrals, not ads.</p>
           </div>
         </div>
       </div>

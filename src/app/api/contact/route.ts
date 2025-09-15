@@ -14,16 +14,6 @@ export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   try {
-    // Debug log environment variables (don't log actual password)
-    console.log('Environment variables:', {
-      host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
-      user: process.env.EMAIL_USER,
-      hasPass: !!process.env.EMAIL_PASS,
-      to: process.env.EMAIL_TO || 'Using fallback email',
-      nodeEnv: process.env.NODE_ENV
-    });
-
     const { name, email, phone, service, message } = await req.json();
 
     if (!name || !email || !message) {
@@ -70,7 +60,7 @@ ${message}
       </div>
     `;
 
-    const info = await transporter.sendMail({
+    await transporter.sendMail({
       from: { name: 'A&H Website', address: user },
       replyTo: email,
       to,
@@ -79,27 +69,9 @@ ${message}
       html: htmlBody,
     });
 
-    if (process.env.NODE_ENV !== 'production') {
-      console.log('Nodemailer sendMail response:', info);
-    }
-
-    return NextResponse.json({ ok: true, messageId: info.messageId });
+    return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('Contact API error:', {
-      error: err,
-      message: err instanceof Error ? err.message : 'Unknown error',
-      stack: err instanceof Error ? err.stack : undefined,
-      env: {
-        host: process.env.EMAIL_HOST ? 'Set' : 'Not set',
-        port: process.env.EMAIL_PORT,
-        user: process.env.EMAIL_USER ? 'Set' : 'Not set',
-        hasPass: !!process.env.EMAIL_PASS,
-        to: process.env.EMAIL_TO || 'Using fallback email'
-      }
-    });
-    return NextResponse.json({ 
-      error: 'Failed to send message',
-      details: process.env.NODE_ENV === 'development' ? err.message : undefined 
-    }, { status: 500 });
+    console.error('Contact API error:', err);
+    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
   }
 }

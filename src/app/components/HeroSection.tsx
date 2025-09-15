@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const HeroSection = () => {
   const containerVariants = {
@@ -36,11 +37,13 @@ const HeroSection = () => {
           className="mb-4 sm:mb-6 md:mb-8"
           variants={itemVariants}
         >
-          <img 
+          <Image 
             src="/logo.svg" 
             alt="A&H Electric Logo" 
             className="h-40 w-40 sm:h-52 sm:w-52 md:h-64 md:w-64 lg:h-72 lg:w-72 xl:h-80 xl:w-80 mx-auto"
-            loading="eager"
+            width={320}
+            height={320}
+            priority
           />
         </motion.div>
         

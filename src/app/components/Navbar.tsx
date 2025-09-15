@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 const smoothScrollTo = (element: HTMLElement, duration: number = 1000) => {
   const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - 100; // 100px offset from top
@@ -99,7 +100,7 @@ const Navbar = () => {
             }
           }}
         >
-          A&H
+          <Image src="/logo.svg" alt="A&H Electric Logo" width={40} height={40} />
         </Link>
       </div>
       <div className="flex space-x-6">

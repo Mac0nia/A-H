@@ -31,10 +31,8 @@ const AnimatedBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    console.log('AnimatedBackground mounted');
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) {
-      console.error('Could not get 2d context');
       return;
     }
 
@@ -75,7 +73,6 @@ const AnimatedBackground = () => {
           });
         }
       }
-      console.log(`Created ${dots.length} dots`);
     };
 
     // Animation loop
@@ -132,7 +129,6 @@ const AnimatedBackground = () => {
 
     // Cleanup
     return () => {
-      console.log('Cleaning up AnimatedBackground');
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
     };

@@ -26,26 +26,26 @@ const AboutSection = () => {
   const aboutPoints = [
     {
       title: "Our Mission",
-      description: "To deliver exceptional electrical services with the highest standards of quality, safety, and customer satisfaction.",
+      description: "Do honest electrical work, no cutting corners.",
       icon: <MissionIcon />,
       delay: 0.1
     },
     {
       title: "Our Vision",
-      description: "To be the most trusted name in electrical services, known for innovation, reliability, and excellence in every project.",
+      description: "To be the first call people make when something breaks, and the last electricians they’ll ever need.",
       icon: <VisionIcon />,
       delay: 0.2
     },
     {
       title: "Our Values",
-      description: "Integrity, professionalism, and customer focus are at the heart of everything we do. We believe in building lasting relationships through trust and quality workmanship.",
+      description: "Turn up, do it properly, leave it tidy. That’s it.",
       icon: <ValuesIcon />,
       delay: 0.3
     }
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-16 lg:py-20">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -93,6 +93,31 @@ const AboutSection = () => {
             <p className="text-gray-300">
               Most of our customers come through referrals, not ads.</p>
           </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-6">Call us today, speak directly to one of us.</h3>
+            <motion.button 
+              className="bg-[#DAA520] text-[#121212] py-3 px-6 sm:py-3 sm:px-8 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:bg-[#B8860B] transition-colors w-full sm:w-auto"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 25px rgba(218, 165, 32, 0.3)"
+              }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                window.location.href = 'tel:+442071234567';
+              }}
+            >
+              Call Now
+            </motion.button>
+          </motion.div>
         </div>
       </div>
     </section>

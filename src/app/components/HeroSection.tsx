@@ -58,7 +58,7 @@ const HeroSection = () => {
           className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto text-gray-300 px-2 leading-relaxed"
           variants={itemVariants}
         >
-          Professional Electrical Services for Your Home and Business
+          Professional Electrical Services in London for Your Home and Business
         </motion.p>
 
         <motion.div

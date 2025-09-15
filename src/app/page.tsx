@@ -4,6 +4,9 @@ import AnimatedBackground from './components/AnimatedBackground';
 import Contact from './components/Contact';
 import AboutSection from './components/AboutSection';
 import Footer from './components/Footer';
+import TrustBadges from './components/TrustBadges';
+import Testimonials from './components/Testimonials';
+import GoogleReviews from './components/GoogleReviews';
 
 export default function Home() {
   return (
@@ -13,6 +16,9 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <Testimonials />
+        <TrustBadges />
+        <GoogleReviews />
         <Contact />
         <Footer />
       </div>

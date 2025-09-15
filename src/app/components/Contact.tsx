@@ -235,7 +235,7 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div
-              className="service-card bg-[rgb(49_49_49_/_50%)] p-4 rounded-lg shadow-lg hover:bg-[rgb(49_49_49_/_60%)]"
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-lg"
             >
               <div className="text-[#DAA520] mb-2"><PhoneIcon /></div>
               <h3 className="text-lg font-semibold mb-1 text-white">Call Us</h3>
@@ -243,7 +243,7 @@ const Contact = () => {
             </div>
 
             <div
-              className="service-card bg-[rgb(49_49_49_/_50%)] p-4 rounded-lg shadow-lg hover:bg-[rgb(49_49_49_/_60%)]"
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-lg"
             >
               <div className="text-[#DAA520] mb-2"><LocationIcon /></div>
               <h3 className="text-lg font-semibold mb-1 text-white">Based in Hackney</h3>
@@ -251,7 +251,7 @@ const Contact = () => {
             </div>
 
             <div
-              className="service-card bg-[rgb(49_49_49_/_50%)] p-4 rounded-lg shadow-lg hover:bg-[rgb(49_49_49_/_60%)]"
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-lg"
             >
               <div className="text-[#DAA520] mb-2"><ClockIcon /></div>
               <h3 className="text-lg font-semibold mb-1 text-white">Working Hours</h3>

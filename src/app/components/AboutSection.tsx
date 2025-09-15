@@ -70,10 +70,10 @@ const AboutSection = () => {
           {aboutPoints.map((point, index) => (
             <div
               key={index}
-              className="service-card bg-[rgb(49_49_49_/_50%)] p-6 rounded-lg shadow-lg hover:shadow-xl hover:bg-[rgb(49_49_49_/_60%)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 transform-gpu"
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-lg"
             >
               <div className="text-[#DAA520] mb-4">{point.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{point.title}</h3>
+              <h3 className="text-xl font-bold text-white mb-2">{point.title}</h3>
               <p className="text-gray-300">{point.description}</p>
             </div>
           ))}
@@ -82,8 +82,8 @@ const AboutSection = () => {
         <div
           className="mt-12 text-center"
         >
-          <div className="bg-[rgb(49_49_49_/_50%)] hover:bg-[rgb(49_49_49_/_60%)] transition-colors duration-300 p-6 rounded-lg max-w-4xl mx-auto shadow-lg hover:shadow-xl">
-            <h3 className="text-2xl font-bold mb-4 text-gray-300 mb-4">Why Choose Us?</h3>
+          <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-lg max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">Why Choose Us?</h3>
             <p className="text-gray-300">
               We arrive on time and finish when promised.</p>
             <p className="text-gray-300">
@@ -92,6 +92,31 @@ const AboutSection = () => {
               We work clean, leaving your space as we found it.</p>
             <p className="text-gray-300">
               Most of our customers come through referrals, not ads.</p>
+          </div>
+        </div>
+
+        {/* Team Members */}
+        <div className="mt-16">
+          <div className="flex flex-wrap justify-center gap-12 md:gap-16 max-w-4xl mx-auto">
+            {/* Anis */}
+            <div className="text-center">
+              <div className="relative w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden border-4 border-[#DAA520]">
+                <div className="w-full h-full bg-gray-700 flex items-center justify-center">
+                  <span className="text-4xl text-gray-300">A</span>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white">Anis</h3>
+            </div>
+
+            {/* H */}
+            <div className="text-center">
+              <div className="relative w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden border-4 border-[#DAA520]">
+                <div className="w-full h-full bg-gray-700 flex items-center justify-center">
+                  <span className="text-4xl text-gray-300">H</span>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white">H</h3>
+            </div>
           </div>
         </div>
 
@@ -112,7 +137,7 @@ const AboutSection = () => {
               }}
               whileTap={{ scale: 0.98 }}
               onClick={() => {
-                window.location.href = 'tel:+442071234567';
+                window.location.href = 'tel:+442012345678';
               }}
             >
               Call Now

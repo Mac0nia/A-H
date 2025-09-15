@@ -14,8 +14,8 @@ export default function Home() {
       <AnimatedBackground />
       <div className="relative z-10">
         <HeroSection />
-        <AboutSection />
         <ServicesSection />
+        <AboutSection />
         <Testimonials />
         <TrustBadges />
         <GoogleReviews />

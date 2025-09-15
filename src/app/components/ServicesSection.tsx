@@ -66,11 +66,9 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, description, icon }: ServiceCardProps) => (
-  <div
-    className="service-card bg-[rgb(49_49_49_/_50%)] p-6 rounded-lg shadow-lg hover:shadow-xl hover:bg-[rgb(49_49_49_/_60%)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 transform-gpu"
-  >
+  <div className="service-card">
     <div className="text-[#DAA520] mb-4">{icon}</div>
-    <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
+    <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
     <p className="text-gray-300">{description}</p>
   </div>
 );

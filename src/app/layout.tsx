@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from './components/Navbar';
-import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -98,8 +97,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -113,7 +113,7 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=yes" />
         
         {/* Structured Data for Local Business */}
-{{ ... }}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({

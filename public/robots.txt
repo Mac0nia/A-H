@@ -1,0 +1,15 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Sitemap: https://ahelectrical.co.uk/sitemap.xml
+
+# Crawl-delay: 10
+# Uncomment the above line to limit crawl rate if needed (requests per second)
+
+# Disallow crawling of admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*.json$
+
+# Allow all other pages to be crawled

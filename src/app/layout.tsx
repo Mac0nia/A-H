@@ -28,6 +28,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
         <meta name="theme-color" content="#1a1a1a" />
+        <meta name="google-site-verification" content="lTbu7FbCU-D2e90RgTAd2Dw1VH-jC_m_BEx-szbqTJE" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

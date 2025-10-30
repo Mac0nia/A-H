@@ -26,7 +26,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative h-[100dvh] h-screen-ios">
+    <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
       <motion.div 
         className="w-full max-w-6xl mx-auto text-center relative px-4"
         variants={containerVariants}
@@ -34,17 +34,18 @@ const HeroSection = () => {
         animate="visible"
       >
         <motion.div 
-          className="mb-4 sm:mb-6 md:mb-8"
+          className="w-full flex justify-center mb-4 sm:mb-6 md:mb-8"
           variants={itemVariants}
         >
-          <Image 
-            src="/logo.svg" 
-            alt="A&H Electric Logo" 
-            className="h-40 w-40 sm:h-52 sm:w-52 md:h-64 md:w-64 lg:h-72 lg:w-72 xl:h-80 xl:w-80 mx-auto"
-            width={320}
-            height={320}
-            priority
-          />
+          <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80">
+            <Image 
+              src="/logo.svg" 
+              alt="A&H Electric Logo" 
+              fill
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
         </motion.div>
         
         <motion.h1 
@@ -55,7 +56,7 @@ const HeroSection = () => {
         </motion.h1>
         
         <motion.p 
-          className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto text-gray-300 px-2 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto text-gray-300 px-2 leading-relaxed text-center"
           variants={itemVariants}
         >
           Professional Electrical Services in London for Your Home and Business

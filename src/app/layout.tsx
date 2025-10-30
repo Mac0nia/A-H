@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from 'next/script';
 import "./globals.css";
 import Navbar from './components/Navbar';
 
@@ -112,8 +113,9 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=yes" />
         
-        {/* Structured Data for Local Business */}
-        <script
+        {/* Structured Data for Local Business - Moved to client component */}
+        <Script
+          id="business-structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({

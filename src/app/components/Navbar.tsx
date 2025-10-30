@@ -19,7 +19,7 @@ const Navbar = () => {
             }
           }}
         >
-          <Image src="/logo.svg" alt="A&H Electric Logo" width={40} height={40} />
+          <Image src="/logo.svg" alt="A&H Electric Logo" width={70} height={70} />
         </Link>
       </div>
       <div className="flex space-x-6">

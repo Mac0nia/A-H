@@ -14,7 +14,7 @@ const Footer = () => {
           </div>
           <div className="text-center md:text-right">
             {/* Add social media icons or other links here in the future */}
-            <p className="text-sm text-gray-400">Website designed by GG</p>
+            <p className="text-sm text-gray-400">Website designed by GG | v1.0.1</p>
           </div>
         </div>
       </div>

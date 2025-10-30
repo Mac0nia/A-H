@@ -6,6 +6,8 @@ Professional electrical services website for A&H Electrical, based in Hackney, L
 
 This site is automatically deployed to Vercel when changes are pushed to the `main` branch.
 
+Last deployment attempt: 2025-10-30 14:00 UTC
+
 ## Getting Started
 
 First, run the development server:

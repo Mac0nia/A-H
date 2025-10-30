@@ -239,7 +239,7 @@ const Contact = () => {
             >
               <div className="text-[#DAA520] mb-2"><PhoneIcon /></div>
               <h3 className="text-lg font-semibold mb-1 text-white">Call Us</h3>
-              <p className="text-gray-300 text-sm">+44 20 1234 5678</p>
+              <p className="text-gray-300 text-sm">+44 7961 045657</p>
             </div>
 
             <div

@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://ahelectrical.co.uk',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://ah-electrical.co.uk',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
@@ -10,7 +10,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://ahelectrical.co.uk/sitemap.xml',
+      'https://ah-electrical.co.uk/sitemap.xml',
     ],
   },
   exclude: ['/server-sitemap.xml', '/admin/*', '/api/*'],

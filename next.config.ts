@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 // Update this to your production URL
-const SITE_URL = 'https://ah-electrical.co.uk';
+const SITE_URL = 'https://www.ah-electric.co.uk';
 
 const nextConfig: NextConfig = {
   output: 'standalone',

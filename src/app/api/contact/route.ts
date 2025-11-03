@@ -49,8 +49,11 @@ ${message}
 
     if (error) {
       console.error('Resend error:', error);
+      const message = typeof error === 'object' && error !== null && 'message' in error
+        ? String((error as { message?: unknown }).message)
+        : 'Failed to send email';
       return NextResponse.json(
-        { error: (error as any).message || 'Failed to send email' },
+        { error: message || 'Failed to send email' },
         { status: 500 }
       );
     }

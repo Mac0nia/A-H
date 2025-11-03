@@ -6,7 +6,7 @@ import Image from 'next/image';
 const Navbar = () => {
   
   return (
-    <nav className="fixed w-full bg-[#1a1a1a]/80 backdrop-blur-sm text-white p-4 flex justify-between items-center z-50">
+    <nav className="fixed inset-x-0 top-0 h-14 sm:h-16 md:h-20 bg-[#1a1a1a]/80 backdrop-blur-sm text-white px-4 flex justify-between items-center z-50">
       <div className="text-lg font-bold">
         <Link 
           href="/" 
@@ -19,7 +19,7 @@ const Navbar = () => {
             }
           }}
         >
-          <Image src="/logo.svg" alt="A&H Electric Logo" width={70} height={70} />
+          <Image src="/logo.svg" alt="A&H Electric Logo" width={70} height={70} className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16" />
         </Link>
       </div>
       <div className="flex space-x-6">

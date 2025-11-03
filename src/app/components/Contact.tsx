@@ -51,7 +51,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
@@ -68,24 +68,32 @@ const Contact = () => {
       return;
     }
 
-    const subject = `Enquiry: ${form.service || 'General Enquiry'}`;
-    const body = `
-Name: ${form.name}
-Email: ${form.email}
-Phone: ${form.phone || 'Not provided'}
-Service: ${form.service || 'Not specified'}
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+        }),
+      });
 
-Message:
-${form.message}
-    `;
+      const data = await response.json();
 
-    const mailtoLink = `mailto:a.h.electricaltech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open the default email client
-    window.location.href = mailtoLink;
-    
-    // Mark as submitted
-    setSubmitted(true);
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      setError(err instanceof Error ? err.message : 'Failed to send message. Please try again later.');
+    }
   };
 
   return (
@@ -130,7 +138,7 @@ ${form.message}
                         value={form.name}
                         onChange={handleInputChange}
                         className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white"
-                        placeholder="Jane Doe"
+                        placeholder="Mark Dean"
                         required
                       />
                     </div>

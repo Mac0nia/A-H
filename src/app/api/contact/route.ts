@@ -1,77 +1,66 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
-export const runtime = 'nodejs';
-
-/*
- Expect these environment variables to be set in .env.local
- EMAIL_HOST=smtp.yourprovider.com
- EMAIL_PORT=587
- EMAIL_USER=your_smtp_username
- EMAIL_PASS=your_smtp_password_or_app_password
- EMAIL_TO=gianluca.galli9519@gmail.com
-*/
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
     const { name, email, phone, service, message } = await req.json();
 
     if (!name || !email || !message) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Name, email, and message are required' },
+        { status: 400 }
+      );
     }
 
-    const host = process.env.NEXT_PUBLIC_EMAIL_HOST || process.env.EMAIL_HOST;
-    const port = process.env.NEXT_PUBLIC_EMAIL_PORT ? Number(process.env.NEXT_PUBLIC_EMAIL_PORT) : 587;
-    const user = process.env.NEXT_PUBLIC_EMAIL_USER || process.env.EMAIL_USER;
-    const pass = process.env.NEXT_PUBLIC_EMAIL_PASS || process.env.EMAIL_PASS;
-    const to = process.env.NEXT_PUBLIC_EMAIL_TO || process.env.EMAIL_TO || 'gianluca.galli9519@gmail.com';
+    // For testing without domain verification, use onboarding@resend.dev as the from address
+    const fromEmail = process.env.NEXT_PUBLIC_EMAIL_FROM || 'onboarding@resend.dev';
+    const toEmail = process.env.NEXT_PUBLIC_EMAIL_TO || 'gianluca.galli9519@gmail.com';
+    const subject = `New enquiry from ${name}${service ? ` (${service})` : ''}`;
 
-    if (!host || !user || !pass) {
-      return NextResponse.json({ error: 'Email environment variables are not configured.' }, { status: 500 });
-    }
-
-    const transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure: port === 465, // true for 465, false for other ports
-      auth: { user, pass },
-    });
-
-    const subject = `New enquiry from ${name}${service ? ` · ${service}` : ''}`;
-
-    const textBody = `
+    const { error } = await resend.emails.send({
+      from: `A&H Website <${fromEmail}>`,
+      to: [toEmail],
+      replyTo: email,
+      subject,
+      text: `
 Name: ${name}
 Email: ${email}
-Phone: ${phone || '-'}
-Service: ${service || '-'}
+Phone: ${phone || 'Not provided'}
+Service: ${service || 'Not specified'}
 
 Message:
 ${message}
-`;
-
-    const htmlBody = `
-      <div style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #111;">
-        <h2>New enquiry from ${name}</h2>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || '-'}</p>
-        <p><strong>Service:</strong> ${service || '-'}</p>
-        <hr/>
-        <p style="white-space: pre-wrap;">${message}</p>
-      </div>
-    `;
-
-    await transporter.sendMail({
-      from: { name: 'A&H Website', address: user },
-      replyTo: email,
-      to,
-      subject,
-      text: textBody,
-      html: htmlBody,
+      `,
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+          ${phone ? `<p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>` : ''}
+          ${service ? `<p><strong>Service:</strong> ${service}</p>` : ''}
+          <div style="margin-top: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 5px;">
+            <p style="margin: 0; white-space: pre-line;">${message}</p>
+          </div>
+        </div>
+      `,
     });
 
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error('Contact API error:', err);
-    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
+    if (error) {
+      console.error('Resend error:', error);
+      return NextResponse.json(
+        { error: (error as any).message || 'Failed to send email' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Contact API error:', error);
+    return NextResponse.json(
+      { error: 'An unexpected error occurred. Please try again.' },
+      { status: 500 }
+    );
   }
 }

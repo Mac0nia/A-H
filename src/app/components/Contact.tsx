@@ -79,7 +79,7 @@ Message:
 ${form.message}
     `;
 
-    const mailtoLink = `mailto:a.h.electricaltech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:gianluca.galli9519h@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Open the default email client
     window.location.href = mailtoLink;
@@ -130,7 +130,7 @@ ${form.message}
                         value={form.name}
                         onChange={handleInputChange}
                         className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white"
-                        placeholder="Jane Doe"
+                        placeholder="Mark Dean"
                         required
                       />
                     </div>

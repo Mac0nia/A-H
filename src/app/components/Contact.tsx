@@ -51,7 +51,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
@@ -68,30 +68,24 @@ const Contact = () => {
       return;
     }
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          service: form.service,
-          message: form.message,
-        }),
-      });
+    const subject = `Enquiry: ${form.service || 'General Enquiry'}`;
+    const body = `
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone || 'Not provided'}
+Service: ${form.service || 'Not specified'}
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
+Message:
+${form.message}
+    `;
 
-      setSubmitted(true);
-    } catch (err) {
-      console.error('Error sending message:', err);
-      setError('Failed to send message. Please try again later.');
-    }
+    const mailtoLink = `mailto:a.h.electricaltech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open the default email client
+    window.location.href = mailtoLink;
+    
+    // Mark as submitted
+    setSubmitted(true);
   };
 
   return (

@@ -241,7 +241,7 @@ const Contact = () => {
             >
               <div className="text-[#DAA520] mb-2"><PhoneIcon /></div>
               <h3 className="text-lg font-semibold mb-1 text-white">Call Us</h3>
-              <p className="text-gray-300 text-sm">+44 07440 599156</p>
+              <p className="text-gray-300 text-sm">+44 7440 599156</p>
             </div>
 
             <div

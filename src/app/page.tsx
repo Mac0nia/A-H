@@ -16,8 +16,8 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <Testimonials />
         <TrustBadges />
+        <Testimonials />
         <GoogleReviews />
         <Contact />
         <Footer />

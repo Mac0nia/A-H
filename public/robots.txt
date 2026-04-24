@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ahelectrical.co.uk
+Host: https://www.ah-electric.co.uk
 
 # Sitemaps
-Sitemap: https://ahelectrical.co.uk/sitemap.xml
+Sitemap: https://www.ah-electric.co.uk/sitemap.xml

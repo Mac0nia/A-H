@@ -26,7 +26,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative h-[100dvh] h-screen-ios">
+    <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative h-[100dvh] h-screen-ios pt-16 sm:pt-20 md:pt-24">
       <motion.div 
         className="w-full max-w-6xl mx-auto text-center relative px-4"
         variants={containerVariants}

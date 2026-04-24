@@ -83,14 +83,16 @@ const Contact = () => {
         }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(data.error || 'Failed to send message');
       }
 
       setSubmitted(true);
     } catch (err) {
       console.error('Error sending message:', err);
-      setError('Failed to send message. Please try again later.');
+      setError(err instanceof Error ? err.message : 'Failed to send message. Please try again later.');
     }
   };
 
@@ -136,7 +138,7 @@ const Contact = () => {
                         value={form.name}
                         onChange={handleInputChange}
                         className="w-full rounded-md bg-[#111] border border-white/10 focus:border-[#DAA520] focus:ring-2 focus:ring-[#DAA520]/30 outline-none p-3 text-white"
-                        placeholder="Jane Doe"
+                        placeholder="Mark Dean"
                         required
                       />
                     </div>
@@ -239,7 +241,7 @@ const Contact = () => {
             >
               <div className="text-[#DAA520] mb-2"><PhoneIcon /></div>
               <h3 className="text-lg font-semibold mb-1 text-white">Call Us</h3>
-              <p className="text-gray-300 text-sm">+44 20 1234 5678</p>
+              <p className="text-gray-300 text-sm">+44 7440 599156</p>
             </div>
 
             <div

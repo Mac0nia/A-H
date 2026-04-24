@@ -23,7 +23,7 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">What our customers say</h2>
-          <p className="mt-2 text-gray-300">Real feedback from homeowners and small businesses we\'ve helped.</p>
+          <p className="mt-2 text-gray-300">Real feedback from homeowners and small businesses we&apos;ve helped.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

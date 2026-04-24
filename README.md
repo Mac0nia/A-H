@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A&H Electrical Website
+
+Professional electrical services website for A&H Electrical, based in Hackney, London.
+
+## Deployment
+
+This site is automatically deployed to Vercel when changes are pushed to the `main` branch.
+
+Last deployment attempt: 2025-10-30 14:00 UTC
 
 ## Getting Started
 
